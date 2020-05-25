@@ -6,4 +6,4 @@ COPY src ./src
 RUN mvn -e -B package
 
 FROM tomcat:8.5.0
-COPY --from=builder /app/target/jb-hello-world-maven-0.1.0.jar webapps/
+COPY --from=builder /app/target/tomcat-app-0.1.0.jar webapps/
