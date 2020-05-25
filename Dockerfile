@@ -6,4 +6,5 @@ COPY src ./src
 RUN mvn -e -B package
 
 FROM tomcat:8.5.0
-COPY --from=builder /app/target/tomcat-app-0.1.0.jar webapps/
+RUN rm -rf webapps/ROOT
+COPY --from=builder /app/target/tomcat-app.war webapps/ROOT.war
